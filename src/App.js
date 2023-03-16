@@ -2,12 +2,8 @@ import Categories from "./components/Categories";
 import Headers from "./components/Headers";
 import PizzaBlock from "./components/PizzaBlock";
 import Sort from "./components/Sort";
+import pizzas from './pizzas.json';
 import "./scss/app.scss";
-
-
-
-
-
 
 
 function App() {
@@ -22,7 +18,9 @@ function App() {
           </div>
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
-            <PizzaBlock />
+            {
+              pizzas.map(obj => <PizzaBlock key={ obj.id + Math.random() } { ...obj } />)
+            }
           </div>
         </div>
       </div>
